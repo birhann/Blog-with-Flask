@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Makale Güncelle</h3>
+<hr>
+{% from "includes/formhelpers.html" import render_field %}
+<div style="padding-block-end:60px;width:900px; font-size:small; font-style: oblique;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px; "">
+        <form method="POST">
+        {{ render_field(form.title,class="form-control",placeholder="Başlık") }}
+        {{ render_field(form.content,class="form-control") }}
+        <button type="submit" class="btn btn-danger" ">Güncelle</button>
+    </form>
+</div>
+
+{% endblock body %}

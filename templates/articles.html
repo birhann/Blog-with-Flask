@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Makaleler
+{% endblock title %}
+
+
+{% block body %}
+<h3>Makaleler</h3>
+<hr>
+{% if articles %}
+<form action="/search" method="POST">
+    <div class="card-body row no-gutters align-items-center" style="padding:2px; width:359px">
+        <div class="col">
+            <input style="width:300px" name="keyword"class="form-control form-control-md form-control-borderless" type="search" placeholder="Makale Ara">
+        </div>
+        <div class="col-auto"">
+            <button style="background-color:#434b53" class="btn btn-md btn-success" type="submit">Ara</button>
+        </div>
+    </div>
+</form>
+<ul class="list-group"  ">
+    {% for article in articles %}
+    <li class="list-group-item" style="background-color: #e2e2e2e1 " > <a href="/article/{{article.id}}" style="text-decoration:none">   {{article.title}}  </a>
+        <div style="font-size:12px"> Yazar:<a href="/profile/{{article.author}}" style="text-decoration:none; color:#220f4e;"> {{article.author}} </a>  Oluşturulma Tarihi: {{article.created_date}}</div> </li>
+    
+    {% endfor %}
+</ul>
+
+{% else %} 
+<div class="alert alert-danger">Bu blokta makale bulunmmaktadır</div>
+{% endif %}
+
+{% endblock body %}
+

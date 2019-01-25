@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Giriş Yap
+{% endblock title %}
+
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+<h3>Giriş Yap</h3>
+<hr>
+<div style="padding-block-end:60px;width:800px; font-size:small; font-style: oblique;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px; "">
+        <form method="POST">
+        {{ render_field(form.username,class="form-control",placeholder="Kullanıcı Adı") }}
+        {{ render_field(form.password,class="form-control",placeholder="Parola") }}
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </form>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,10 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible" role="alert" style="height:auto; width:auto; font-size:16px">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="font-size:20px">&times;</a>
+    {{message}}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
